@@ -105,7 +105,7 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .hero-carousel .hero-shade{display:none}
 .hero-carousel .hero-content{padding:50px 0 100px}
 .hero-text-card{max-width:800px;padding:38px 44px;background:rgba(23,23,25,.72);border-radius:20px;box-shadow:0 14px 35px #0003}
-.hero-carousel .hero-heading{font-size:clamp(34px,3.5vw,58px);margin-bottom:24px}
+.hero-carousel .hero-heading{font-size:clamp(34px,3.5vw,58px);margin-bottom:0}
 .hero-carousel .hero-intro{font-size:16px;margin-bottom:22px}
 .hero-carousel .hero-description{font-size:16px;margin-bottom:24px;max-width:630px}
 .hero-carousel-controls{left:50%;transform:translateX(-50%);bottom:30px;gap:18px}
