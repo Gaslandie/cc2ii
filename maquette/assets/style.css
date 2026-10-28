@@ -185,11 +185,11 @@ h1,h2,h3,.accordion-button{font-family:"Plus Jakarta Sans",Arial,sans-serif;lett
 .strengths-section{background:var(--light)}
 /* Référence Bootstrap 5.3 Borders, consultée le 28/10/2026 : rayon 50%,
    adapté en cercles de même taille, couleur du site et texte extérieur. */
-.strength-item{height:100%;text-align:center;padding:0 10px}
+.strength-item{height:100%;text-align:center;padding:28px 18px;border:1px solid rgba(112,27,61,.12);border-radius:12px;background:rgba(255,255,255,.28)}
 .strength-item h3{display:flex;align-items:center;justify-content:center;width:min(100%,260px);aspect-ratio:1;margin:0 auto 26px;padding:36px;border-radius:50%;background:var(--wine);color:#fff;font-family:"Plus Jakarta Sans",Arial,sans-serif;font-size:28px;font-weight:500;line-height:1.25;letter-spacing:normal}
 .strength-item p{max-width:360px;margin:0 auto;font-size:16px;line-height:1.8;color:#5a5357}
 @media(max-width:991px){.strengths-section .row{row-gap:40px!important}}
-@media(max-width:575px){.strength-item{padding:0}.strength-item h3{width:min(100%,240px);font-size:26px;margin-bottom:22px}}
+@media(max-width:575px){.strength-item{padding:24px 16px}.strength-item h3{width:min(100%,240px);font-size:26px;margin-bottom:22px}}
 /* Footer : lecture confortable sur fond bordeaux, ordinateur et mobile. */
 .site-footer .footer-directory h2{font-size:20px;font-weight:600;color:#fff;min-height:60px}
 .site-footer .footer-directory li{font-size:15px;line-height:1.7;margin-bottom:12px}
