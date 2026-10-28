@@ -181,3 +181,10 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .footer-directory{align-items:start}
 .footer-directory h2{min-height:54px;margin:0 0 16px;display:flex;align-items:baseline;align-content:flex-start;flex-wrap:wrap;column-gap:4px}
 @media(max-width:575px){.footer-directory h2{min-height:48px;margin-bottom:12px}}
+/* Footer dans le bordeaux de l’identité du site. */
+.site-footer{background:var(--wine);color:white}
+.site-footer .footer-directory h2,.site-footer .brand,.site-footer .footer-signature{color:white}
+.site-footer .footer-directory a,.site-footer .footer-contact a{color:#fff}
+.site-footer .footer-directory a:hover,.site-footer .footer-contact a:hover{color:#ffdc8d}
+.site-footer .footer-continuation,.site-footer .footer-legal{color:#efdde4}
+.site-footer .brand span{border-left-color:#ffffff66}
