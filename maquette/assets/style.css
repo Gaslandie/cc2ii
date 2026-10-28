@@ -67,7 +67,7 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .navbar .nav-link:focus{box-shadow:none}
 .navbar .nav-link:focus:not(:focus-visible){outline:none!important}
 .navbar .nav-link:focus-visible{outline:1px solid var(--wine)!important;outline-offset:3px;box-shadow:none}
-@media(hover:hover) and (pointer:fine){.navbar .dropdown:hover>.nav-link{outline:none!important;box-shadow:none}}
+.navbar .nav-link.pointer-focus:focus{outline:none!important;box-shadow:none}
 /* Secteurs : composition ouverte inspirée de la capture Invest Africa. */
 .sectors-section{background:#e7e7e2;color:var(--ink);padding-bottom:120px}
 .sectors-section::after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:36px;background:var(--light);clip-path:polygon(0 100%,100% 0,100% 100%);pointer-events:none}

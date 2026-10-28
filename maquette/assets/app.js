@@ -2,12 +2,19 @@
 const navigation = document.getElementById('navigation');
 // Survol à la souris sur grand écran ; clic conservé pour le tactile et le clavier.
 const hoverNavigation = window.matchMedia('(min-width: 1400px) and (hover: hover) and (pointer: fine)');
+// Bootstrap donne le focus au déclencheur même au survol de la souris.
+// Le repère de focus doit revenir dès que l'on utilise le clavier.
+document.addEventListener('keydown', () => {
+  navigation.querySelectorAll('.pointer-focus').forEach(link => link.classList.remove('pointer-focus'));
+}, true);
 navigation.querySelectorAll('.dropdown').forEach(dropdown => {
   const toggle = dropdown.querySelector('[data-bs-toggle="dropdown"]');
+  toggle.addEventListener('pointerdown', () => toggle.classList.add('pointer-focus'));
   let closeTimer;
   dropdown.addEventListener('mouseenter', () => {
     if (!hoverNavigation.matches) return;
     clearTimeout(closeTimer);
+    toggle.classList.add('pointer-focus');
     navigation.querySelectorAll('.dropdown').forEach(other => {
       if (other !== dropdown) bootstrap.Dropdown.getOrCreateInstance(other.querySelector('[data-bs-toggle="dropdown"]')).hide();
     });
