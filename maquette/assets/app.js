@@ -56,25 +56,68 @@ updateRotation();
 
 }
 
-// Apparition unique au défilement ; le contenu reste visible sans JavaScript.
+// Référence MDN Intersection Observer, 28/10/2026 : apparition à l'entrée
+// dans le viewport. Material Motion inaccessible sans JS lors de la comparaison.
 const pageMotionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 const revealAnimations = new Set();
+function playMotion(element, frames, options) {
+  const animation = element.animate(frames, options);
+  revealAnimations.add(animation);
+  animation.onfinish = animation.oncancel = () => revealAnimations.delete(animation);
+  return animation;
+}
 if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
   const revealObserver = new IntersectionObserver(entries => {
+    let order = 0;
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      revealObserver.unobserve(entry.target);
-      if (pageMotionPreference.matches || entry.target.contains(document.activeElement)) return;
-      const animation = entry.target.animate([
-        {opacity: .45, transform: 'translateY(12px)'},
+      const element = entry.target;
+      revealObserver.unobserve(element);
+      const pending = element.classList.contains('reveal-pending');
+      element.classList.remove('reveal-pending');
+      if (!pending || pageMotionPreference.matches || element.contains(document.activeElement)) return;
+      playMotion(element, [
+        {opacity: 0, transform: 'translateY(38px)'},
         {opacity: 1, transform: 'translateY(0)'}
-      ], {duration: 460, easing: 'cubic-bezier(.22,.61,.36,1)'});
-      revealAnimations.add(animation);
-      animation.onfinish = animation.oncancel = () => revealAnimations.delete(animation);
+      ], {duration: 900, delay: Math.min(order++, 3) * 110, fill: 'backwards', easing: 'cubic-bezier(.22,.61,.36,1)'});
     });
-  }, {threshold: .08});
-  document.querySelectorAll('.intro-section .row > div, .section-heading, .expertise-grid > div, .sectors-heading, .sector-grid > div, .strengths-section .row > div, .location-copy, .contact-section .row > div').forEach(element => revealObserver.observe(element));
+  }, {threshold: .08, rootMargin: '0px 0px -35px 0px'});
+  document.querySelectorAll('.intro-section .row > div, .section-heading, .expertise-grid > div, .sectors-heading, .sector-grid > div, .strengths-section .row > div, .location-image, .location-copy, .contact-section .row > div').forEach(element => {
+    // Ne jamais masquer après coup un élément déjà visible au chargement.
+    if (!pageMotionPreference.matches && element.getBoundingClientRect().top >= innerHeight) {
+      element.classList.add('reveal-pending');
+      revealObserver.observe(element);
+    }
+  });
+  document.addEventListener('focusin', event => {
+    const element = event.target.closest('.reveal-pending');
+    if (element) {element.classList.remove('reveal-pending'); revealObserver.unobserve(element);}
+    revealAnimations.forEach(animation => {
+      if (animation.effect.target.contains(event.target)) animation.cancel();
+    });
+  });
+  function animateHero(slide) {
+    if (pageMotionPreference.matches || !slide) return;
+    slide.getAnimations({subtree:true}).forEach(animation => {
+      if (revealAnimations.has(animation)) animation.cancel();
+    });
+    playMotion(slide.querySelector('.hero-text-card'), [
+      {opacity: 0, transform: 'translateY(32px)'},
+      {opacity: 1, transform: 'translateY(0)'}
+    ], {duration: 1100, easing: 'cubic-bezier(.22,.61,.36,1)'});
+    playMotion(slide.querySelector('.hero-image'), [
+      {transform: 'scale(1.065)'}, {transform: 'scale(1)'}
+    ], {duration: 5500, easing: 'cubic-bezier(.2,.65,.3,1)'});
+  }
+  if (heroCarousel) {
+    animateHero(heroCarousel.querySelector('.carousel-item.active'));
+    heroCarousel.addEventListener('slide.bs.carousel', event => animateHero(event.relatedTarget));
+  }
   pageMotionPreference.addEventListener('change', () => {
-    if (pageMotionPreference.matches) revealAnimations.forEach(animation => animation.cancel());
+    if (pageMotionPreference.matches) {
+      revealObserver.disconnect();
+      document.querySelectorAll('.reveal-pending').forEach(element => element.classList.remove('reveal-pending'));
+      revealAnimations.forEach(animation => animation.cancel());
+    }
   });
 }
