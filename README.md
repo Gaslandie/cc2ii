@@ -19,7 +19,7 @@ Ouvrir http://127.0.0.1:5173/ . Servir uniquement le dossier `maquette`.
 
 Les coordonnées et activités proviennent des informations fournies par le client. Les photos sont des illustrations et ne représentent pas des réalisations ni l’équipe du cabinet. Dubaï reste une perspective future.
 
-Maquette sans administration, sans formulaire serveur et sans collecte de données. Les documents client, notes internes et fichiers d’environnement sont exclus du dépôt. La publication du dépôt ne constitue pas un déploiement du site. Le serveur Python sert uniquement à la prévisualisation locale.
+Maquette sans administration, sans formulaire serveur et sans collecte de données. Les documents client, notes internes et fichiers d’environnement sont exclus du dépôt. GitHub Actions publie les pages HTML et les ressources de `maquette` sur https://gaslandie.github.io/cc2ii/ à chaque envoi sur `main`. Les documents et notes internes ne sont pas inclus dans le déploiement. Le serveur Python sert uniquement à la prévisualisation locale.
 
 ## Ressources et crédits
 
