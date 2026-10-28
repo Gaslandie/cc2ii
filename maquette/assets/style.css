@@ -195,3 +195,17 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .strength-item p{font-size:16px;line-height:1.8;color:#5a5357;margin-bottom:0}
 @media(min-width:992px){.strength-item h3{min-height:73px}}
 @media(max-width:575px){.strength-item{padding:22px 0 10px}.strength-item h3{font-size:26px;margin-bottom:15px}}
+/* Footer : lecture confortable sur fond bordeaux, ordinateur et mobile. */
+.site-footer .footer-directory h2{font-size:20px;font-weight:600;color:#fff;min-height:60px}
+.site-footer .footer-directory li{font-size:15px;line-height:1.7;margin-bottom:12px}
+.site-footer .footer-directory a,.site-footer .footer-contact a,.site-footer .footer-address{color:#fff}
+.site-footer .footer-continuation{font-size:14px;color:#fff}
+.site-footer .footer-identity address{font-size:15px;line-height:1.8}
+.site-footer .footer-brand span{font-size:13px;line-height:1.6;color:#fff}
+.site-footer .footer-signature{font-size:16px;color:#fff}
+.site-footer .footer-legal,.site-footer .footer-legal p:last-child{font-size:12px;line-height:1.8;color:#fff}
+@media(max-width:575px){
+ .site-footer .footer-directory h2{font-size:18px;min-height:54px}
+ .site-footer .footer-directory li{font-size:14px;line-height:1.7}
+ .site-footer .footer-brand span{font-size:12px}
+}
