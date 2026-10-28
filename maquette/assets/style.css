@@ -132,13 +132,7 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 @media(max-width:1399.98px){
  .navbar #navigation{padding:12px 6% 16px}
  .navbar #navigation.collapsing{padding:12px 6% 16px;transition:height .32s cubic-bezier(.22,.61,.36,1)}
- .navbar #navigation.show .navbar-nav>.nav-item{animation:menu-link-enter .28s ease-out both}
- .navbar #navigation.show .navbar-nav>.nav-item:nth-child(2){animation-delay:.035s}
- .navbar #navigation.show .navbar-nav>.nav-item:nth-child(3){animation-delay:.07s}
- .navbar #navigation.show .navbar-nav>.nav-item:nth-child(4){animation-delay:.105s}
- .navbar #navigation.show .navbar-nav>.nav-item:nth-child(5){animation-delay:.14s}
 }
-@keyframes menu-link-enter{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.navbar #navigation.collapsing{transition:none}.navbar #navigation.show .navbar-nav>.nav-item{animation:none}}
 /* Hero mobile plus compact, avec assez de place pour les quatre textes. */
 @media(max-width:575px){
