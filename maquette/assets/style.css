@@ -245,3 +245,5 @@ h1,h2,h3,.accordion-button{font-family:"Plus Jakarta Sans",Arial,sans-serif;lett
   .location-image:hover img{transform:scale(1.055)}
  }
 }
+
+.hero-text-card .hero-heading + .btn{margin-top:26px}
