@@ -188,3 +188,10 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .site-footer .footer-directory a:hover,.site-footer .footer-contact a:hover{color:#ffdc8d}
 .site-footer .footer-continuation,.site-footer .footer-legal{color:#efdde4}
 .site-footer .brand span{border-left-color:#ffffff66}
+/* Trois atouts explicitement fournis dans la fiche de présentation. */
+.strengths-section{background:var(--light)}
+.strength-item{height:100%;border-top:2px solid var(--wine);padding:28px 25px 0 0}
+.strength-item h3{font-family:"Funnel Display",Arial,sans-serif;font-size:29px;font-weight:400;line-height:1.25;color:var(--wine);margin-bottom:20px}
+.strength-item p{font-size:16px;line-height:1.8;color:#5a5357;margin-bottom:0}
+@media(min-width:992px){.strength-item h3{min-height:73px}}
+@media(max-width:575px){.strength-item{padding:22px 0 10px}.strength-item h3{font-size:26px;margin-bottom:15px}}
