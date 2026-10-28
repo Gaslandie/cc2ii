@@ -1,0 +1,13 @@
+# Documents client et fichiers de travail privés
+/*.pdf
+/maquette/compression-images.json
+/maquette/README.md
+
+# Fichiers locaux
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+__pycache__/
+*.log
