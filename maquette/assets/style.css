@@ -42,7 +42,7 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .sector-card{background:white;color:var(--ink);height:100%;overflow:hidden;border-radius:2px;scroll-margin-top:115px}
 .sector-card>img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
 .sector-card-copy{padding:28px 30px 32px}.sector-card h3{font-size:27px;font-weight:400;color:var(--wine);line-height:1.2;margin-bottom:18px}.sector-card p{font-size:15px;line-height:1.7;margin:0;color:#5a5357}.sector-card .section-number{margin-bottom:12px}
-.sector-card:focus{outline:3px solid var(--gold);outline-offset:5px}
+
 .sector-image-note{font-size:11px;color:#efdde4;margin:25px 0 0}
 @media(min-width:768px){.sector-card-wide{display:grid;grid-template-columns:1fr 1fr;align-items:center}.sector-card-wide>img{height:100%;max-height:340px}.sector-card-wide .sector-card-copy{padding:40px}}
 @media(max-width:767px){.sectors-heading{display:block;margin-bottom:30px}.sectors-heading>p{margin-top:25px}.hero-media-controls{right:6%;left:6%;justify-content:space-between;gap:10px}.sector-card-copy{padding:25px}.sector-card h3{font-size:25px}}
@@ -55,7 +55,7 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .expertise-card h3{font-size:28px;font-weight:400;color:var(--wine);line-height:1.2;margin-bottom:25px}
 .expertise-card-body{font-size:15px;line-height:1.75;flex-grow:1}.expertise-card-body strong{font-weight:600;color:var(--wine)}
 .expertise-card .btn{align-self:flex-start;margin-top:12px;font-size:13px}.expertise-card .btn span{margin-left:8px}
-.expertise-card:focus{outline:3px solid var(--gold);outline-offset:5px}
+
 .sectors-section{position:relative;padding-top:135px}
 .sectors-section::before{content:'';position:absolute;top:-1px;left:0;width:100%;height:36px;background:white;clip-path:polygon(0 0,100% 0,100% 100%);pointer-events:none}
 .publication-card{background:white;border:1px solid #eadce2;height:100%}.publication-card img{width:100%;aspect-ratio:16/10;object-fit:cover}.publication-copy{padding:25px}.publication-copy time{font-size:12px;color:var(--wine)}.publication-copy h3{font-family:"Funnel Display",sans-serif;font-size:25px;margin:12px 0}
