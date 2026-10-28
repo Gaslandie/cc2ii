@@ -48,3 +48,26 @@ document.addEventListener('visibilitychange', updateRotation);
 updateRotation();
 
 }
+
+// Apparition unique au défilement ; le contenu reste visible sans JavaScript.
+const pageMotionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+const revealAnimations = new Set();
+if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      revealObserver.unobserve(entry.target);
+      if (pageMotionPreference.matches || entry.target.contains(document.activeElement)) return;
+      const animation = entry.target.animate([
+        {opacity: .45, transform: 'translateY(12px)'},
+        {opacity: 1, transform: 'translateY(0)'}
+      ], {duration: 460, easing: 'cubic-bezier(.22,.61,.36,1)'});
+      revealAnimations.add(animation);
+      animation.onfinish = animation.oncancel = () => revealAnimations.delete(animation);
+    });
+  }, {threshold: .08});
+  document.querySelectorAll('.intro-section .row > div, .section-heading, .expertise-grid > div, .sectors-heading, .sector-grid > div, .strengths-section .row > div, .location-copy, .contact-section .row > div').forEach(element => revealObserver.observe(element));
+  pageMotionPreference.addEventListener('change', () => {
+    if (pageMotionPreference.matches) revealAnimations.forEach(animation => animation.cancel());
+  });
+}

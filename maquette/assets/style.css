@@ -215,3 +215,19 @@ h1,h2,h3,.accordion-button{font-family:"Funnel Display",Arial,sans-serif;letter-
 .construction-mail{color:var(--wine);font-size:15px}
 .navbar a[aria-current=page]{font-weight:700}
 @media(max-width:575px){.construction-section{padding-bottom:60px}.construction-content{padding-top:45px}.construction-content>p:not(.eyebrow){font-size:16px}.page-breadcrumb{font-size:12px}}
+/* Micro-interactions : entrée et sortie douces, sans animation du menu. */
+@media(prefers-reduced-motion:no-preference){
+ .btn{transition:background-color .2s ease,color .2s ease,transform .22s ease,box-shadow .22s ease}
+ .btn>span{display:inline-block;transition:transform .22s ease}
+ .expertise-card,.strength-item{transition:transform .25s ease,box-shadow .25s ease}
+ .sector-card>img,.cabinet-figure img{transition:filter .3s ease,box-shadow .3s ease}
+ .site-footer a,.text-link{transition:color .2s ease}
+ @media(hover:hover) and (pointer:fine){
+  .btn:hover{transform:translateY(-2px);box-shadow:0 5px 13px #3213211a}
+  .btn:hover>span{transform:translateX(3px)}
+  .btn:active{transform:translateY(0);box-shadow:none}
+  .expertise-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px #3213210d}
+  .strength-item:hover{transform:translateY(-3px)}
+  .sector-card:hover>img,.cabinet-figure:hover img{filter:brightness(1.04);box-shadow:0 7px 20px #32132114}
+ }
+}
