@@ -1,29 +1,5 @@
 'use strict';
 const navigation = document.getElementById('navigation');
-navigation.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', async event => {
-    const hash = link.getAttribute('href');
-    if (!hash.startsWith('#')) return;
-    event.preventDefault();
-    const pending = [];
-    if (navigation.classList.contains('show')) {
-      pending.push(new Promise(resolve => navigation.addEventListener('hidden.bs.collapse', resolve, {once: true})));
-      bootstrap.Collapse.getOrCreateInstance(navigation).hide();
-    }
-    navigation.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(toggle => bootstrap.Dropdown.getOrCreateInstance(toggle).hide());
-    const target = document.getElementById(hash.slice(1));
-    await Promise.all(pending);
-    history.pushState(null, '', hash);
-    target?.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
-    const focusTarget = target;
-    if (focusTarget) {
-      if (!focusTarget.matches('button')) focusTarget.setAttribute('tabindex', '-1');
-      focusTarget.focus({preventScroll: true});
-    }
-  });
-});
-
-
 // Survol à la souris sur grand écran ; clic conservé pour le tactile et le clavier.
 const hoverNavigation = window.matchMedia('(min-width: 1400px) and (hover: hover) and (pointer: fine)');
 navigation.querySelectorAll('.dropdown').forEach(dropdown => {
@@ -49,6 +25,7 @@ navigation.querySelectorAll('.dropdown').forEach(dropdown => {
 
 // Quatre images : défilement automatique, suspendu au survol ou au clavier.
 const heroCarousel = document.getElementById('hero-carousel');
+if (heroCarousel) {
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 const carousel = new bootstrap.Carousel(heroCarousel, {interval: 7000, ride: false, pause: false, touch: true});
 let heroHovered = false;
@@ -69,3 +46,5 @@ heroCarousel.addEventListener('slid.bs.carousel', event => {
 motionPreference.addEventListener('change', updateRotation);
 document.addEventListener('visibilitychange', updateRotation);
 updateRotation();
+
+}
